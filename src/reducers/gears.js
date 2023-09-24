@@ -28,14 +28,27 @@ export const gearsSlice = createSlice({
             } else {
                 state.count = 10;
             }
+        },
+        updateFinal: (state, {payload}) => {
+            state.final = payload;
+        },
+        updateGear: (state, {payload}) => {
+            const index = payload.gear - 1;
+            state.gears[index] = payload.value;
         }
     },
 });
 
 export const {
-    updateCount
+    updateCount,
+    updateFinal,
+    updateGear,
 } = gearsSlice.actions;
 
 export const getGearsCount = state => state.gears.count;
+
+export const getFinalGear = state => state.gears.final;
+
+export const getGears = state => state.gears.gears;
 
 export default gearsSlice.reducer;

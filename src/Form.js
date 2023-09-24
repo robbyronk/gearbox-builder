@@ -1,13 +1,59 @@
 import {Button, Label, TextInput} from 'flowbite-react';
-import {getGearsCount, updateCount} from "./reducers/gears";
+import {getFinalGear, getGears, getGearsCount, updateCount, updateFinal, updateGear} from "./reducers/gears";
 import {useDispatch, useSelector} from "react-redux";
 
 export default function Form() {
-    const gearsCount = useSelector(getGearsCount)
+    const gearsCount = useSelector(getGearsCount);
+    const finalGear = useSelector(getFinalGear);
+    const gears = useSelector(getGears);
     const dispatch = useDispatch();
 
     function handleGearsChange(event) {
         dispatch(updateCount(event.target.value))
+    }
+
+    function handleFinalChange(event) {
+        dispatch(updateFinal(event.target.value))
+    }
+
+    function handleFirstChange(event) {
+        dispatch(updateGear({gear: 1, value: event.target.value}))
+    }
+
+    function handleSecondChange(event) {
+        dispatch(updateGear({gear: 2, value: event.target.value}))
+    }
+
+    function handleThirdChange(event) {
+        dispatch(updateGear({gear: 3, value: event.target.value}))
+    }
+
+    function handleFourthChange(event) {
+        dispatch(updateGear({gear: 4, value: event.target.value}))
+    }
+
+    function handleFifthChange(event) {
+        dispatch(updateGear({gear: 5, value: event.target.value}))
+    }
+
+    function handleSixthChange(event) {
+        dispatch(updateGear({gear: 6, value: event.target.value}))
+    }
+
+    function handleSeventhChange(event) {
+        dispatch(updateGear({gear: 7, value: event.target.value}))
+    }
+
+    function handleEigthChange(event) {
+        dispatch(updateGear({gear: 8, value: event.target.value}))
+    }
+
+    function handleNinthChange(event) {
+        dispatch(updateGear({gear: 9, value: event.target.value}))
+    }
+
+    function handleTenthChange(event) {
+        dispatch(updateGear({gear: 10, value: event.target.value}))
     }
 
     return (
@@ -100,6 +146,8 @@ export default function Form() {
                         />
                     </div>
                     <TextInput
+                        onChange={handleFinalChange}
+                        value={finalGear}
                         id="finalGear"
                         placeholder="3.2"
                         required
@@ -119,6 +167,8 @@ export default function Form() {
                         />
                     </div>
                     <TextInput
+                        onChange={handleFirstChange}
+                        value={gears[0]}
                         id="firstGear"
                         placeholder="3.2"
                         required
@@ -134,6 +184,8 @@ export default function Form() {
                         />
                     </div>
                     <TextInput
+                        onChange={handleSecondChange}
+                        value={gears[1]}
                         id="secondGear"
                         placeholder="3.2"
                         required
@@ -149,6 +201,8 @@ export default function Form() {
                         />
                     </div>
                     <TextInput
+                        onChange={handleThirdChange}
+                        value={gears[2]}
                         id="thirdGear"
                         placeholder="3.2"
                         required
@@ -164,6 +218,8 @@ export default function Form() {
                         />
                     </div>
                     <TextInput
+                        onChange={handleFourthChange}
+                        value={gears[3]}
                         id="fourthGear"
                         placeholder="3.2"
                         required
@@ -179,6 +235,8 @@ export default function Form() {
                         />
                     </div>
                     <TextInput
+                        onChange={handleFifthChange}
+                        value={gears[4]}
                         id="fifthGear"
                         placeholder="3.2"
                         required
@@ -194,6 +252,8 @@ export default function Form() {
                         />
                     </div>
                     <TextInput
+                        onChange={handleSixthChange}
+                        value={gears[5]}
                         id="sixthGear"
                         placeholder="3.2"
                         required
@@ -209,6 +269,8 @@ export default function Form() {
                         />
                     </div>
                     <TextInput
+                        onChange={handleSeventhChange}
+                        value={gears[6]}
                         id="seventhGear"
                         placeholder="3.2"
                         required
@@ -224,6 +286,8 @@ export default function Form() {
                         />
                     </div>
                     <TextInput
+                        onChange={handleEigthChange}
+                        value={gears[7]}
                         id="eigthGear"
                         placeholder="3.2"
                         required
@@ -239,6 +303,8 @@ export default function Form() {
                         />
                     </div>
                     <TextInput
+                        onChange={handleNinthChange}
+                        value={gears[8]}
                         id="ninthGear"
                         placeholder="3.2"
                         required
@@ -254,6 +320,8 @@ export default function Form() {
                         />
                     </div>
                     <TextInput
+                        onChange={handleTenthChange}
+                        value={gears[9]}
                         id="tenthGear"
                         placeholder="3.2"
                         required
