@@ -18,7 +18,7 @@ export const torquesSlice = createSlice({
     reducers: {},
 });
 
-export const {} = torquesSlice.actions;
+// export const {} = torquesSlice.actions;
 
 export const getTorqueCurve = state => state.torques.curve;
 
