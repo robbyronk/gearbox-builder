@@ -1,6 +1,15 @@
 import {Button, Label, TextInput} from 'flowbite-react';
+import {getGearsCount, updateCount} from "./reducers/gears";
+import {useDispatch, useSelector} from "react-redux";
 
 export default function Form() {
+    const gearsCount = useSelector(getGearsCount)
+    const dispatch = useDispatch();
+
+    function handleGearsChange(event) {
+        dispatch(updateCount(event.target.value))
+    }
+
     return (
         <form className="flex max-w-xl flex-col gap-4">
             <div className="flex flex-row">
@@ -74,6 +83,8 @@ export default function Form() {
                         />
                     </div>
                     <TextInput
+                        onChange={handleGearsChange}
+                        value={gearsCount}
                         id="gearsCount"
                         placeholder="7"
                         required

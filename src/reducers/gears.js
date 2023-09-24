@@ -20,7 +20,22 @@ const initialState = {
 export const gearsSlice = createSlice({
     name: 'gears',
     initialState,
-    reducers: {},
+    reducers: {
+        updateCount: (state, {payload}) => {
+            const count = parseInt(payload);
+            if (1 <= count && count <= 10) {
+                state.count = count;
+            } else {
+                state.count = 10;
+            }
+        }
+    },
 });
+
+export const {
+    updateCount
+} = gearsSlice.actions;
+
+export const getGearsCount = state => state.gears.count;
 
 export default gearsSlice.reducer;
