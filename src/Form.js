@@ -1,5 +1,13 @@
 import {Button, Label, TextInput} from 'flowbite-react';
-import {getFinalGear, getGears, getGearsCount, updateCount, updateFinal, updateGear} from "./reducers/gears";
+import {
+    calculateGears,
+    getFinalGear,
+    getGears,
+    getGearsCount,
+    updateCount,
+    updateFinal,
+    updateGear
+} from "./reducers/gears";
 import {useDispatch, useSelector} from "react-redux";
 import {
     getAspectRatio,
@@ -21,6 +29,11 @@ export default function Form() {
     const finalGear = useSelector(getFinalGear);
     const gears = useSelector(getGears);
     const dispatch = useDispatch();
+
+    function handleFormSubmit(event) {
+        event.preventDefault();
+        dispatch(calculateGears())
+    }
 
     function handleDriveWheelsChange(event) {
         dispatch(updateDriveWheels(event.target.value))
@@ -87,7 +100,7 @@ export default function Form() {
     }
 
     return (
-        <form className="flex max-w-xl flex-col gap-4">
+        <form className="flex max-w-xl flex-col gap-4" onSubmit={handleFormSubmit}>
             <div className="flex flex-row">
                 <div className="mr-2">
                     <div className="mb-2 block">

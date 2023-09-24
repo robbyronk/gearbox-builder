@@ -1,4 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit';
+import {getTireHeight} from "../calculations/tires";
 
 const initialState = {
     driveWheels: 4,
@@ -57,6 +58,13 @@ export const getDriveWheels = state => state.wheels.driveWheels;
 export const getTireWidth = state => state.wheels.tireWidth;
 export const getAspectRatio = state => state.wheels.aspectRatio;
 export const getRimSize = state => state.wheels.rimSize;
+
+export const getWheelDiameter = state => {
+    const width = parseInt(getTireWidth(state));
+    const aspectRatio = parseInt(getAspectRatio(state));
+    const rimDiameter = parseInt(getRimSize(state));
+    return getTireHeight({width, aspectRatio, rimDiameter});
+};
 
 
 export default tiresSlice.reducer;

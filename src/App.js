@@ -1,5 +1,6 @@
 import './App.css';
 import Form from "./Form";
+import ShiftPoints from "./components/ShiftPoints";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       </header>
       <div>
         <Form/>
+          <ShiftPoints/>
       </div>
     </div>
   );

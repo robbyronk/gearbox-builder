@@ -1,4 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit';
+import {noop, take} from "lodash";
 
 const initialState = {
     count: 7,
@@ -14,7 +15,8 @@ const initialState = {
         0.95,
         0.9,
         0.85,
-    ]
+    ],
+    shiftPoints: []
 };
 
 export const gearsSlice = createSlice({
@@ -35,7 +37,11 @@ export const gearsSlice = createSlice({
         updateGear: (state, {payload}) => {
             const index = payload.gear - 1;
             state.gears[index] = payload.value;
-        }
+        },
+        setShiftPoints: (state, {payload}) => {
+            state.shiftPoints = payload;
+        },
+        calculateGears: noop
     },
 });
 
@@ -43,6 +49,8 @@ export const {
     updateCount,
     updateFinal,
     updateGear,
+    setShiftPoints,
+    calculateGears,
 } = gearsSlice.actions;
 
 export const getGearsCount = state => state.gears.count;
@@ -50,5 +58,12 @@ export const getGearsCount = state => state.gears.count;
 export const getFinalGear = state => state.gears.final;
 
 export const getGears = state => state.gears.gears;
+
+export const getActiveGears = state => {
+    const count = getGearsCount(state);
+    return take(getGears(state), count)
+};
+
+export const getShiftPoints = state => state.gears.shiftPoints;
 
 export default gearsSlice.reducer;
