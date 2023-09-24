@@ -1,12 +1,42 @@
 import {Button, Label, TextInput} from 'flowbite-react';
 import {getFinalGear, getGears, getGearsCount, updateCount, updateFinal, updateGear} from "./reducers/gears";
 import {useDispatch, useSelector} from "react-redux";
+import {
+    getAspectRatio,
+    getDriveWheels,
+    getRimSize,
+    getTireWidth,
+    updateAspectRatio,
+    updateDriveWheels,
+    updateRimSize,
+    updateTireWidth
+} from "./reducers/wheels";
 
 export default function Form() {
+    const tireWidth = useSelector(getTireWidth);
+    const aspectRatio = useSelector(getAspectRatio);
+    const rimSize = useSelector(getRimSize);
+    const driveWheels = useSelector(getDriveWheels);
     const gearsCount = useSelector(getGearsCount);
     const finalGear = useSelector(getFinalGear);
     const gears = useSelector(getGears);
     const dispatch = useDispatch();
+
+    function handleDriveWheelsChange(event) {
+        dispatch(updateDriveWheels(event.target.value))
+    }
+
+    function handleTireWidthChange(event) {
+        dispatch(updateTireWidth(event.target.value))
+    }
+
+    function handleAspectRatioChange(event) {
+        dispatch(updateAspectRatio(event.target.value))
+    }
+
+    function handleRimSizeChange(event) {
+        dispatch(updateRimSize(event.target.value))
+    }
 
     function handleGearsChange(event) {
         dispatch(updateCount(event.target.value))
@@ -67,6 +97,8 @@ export default function Form() {
                         />
                     </div>
                     <TextInput
+                        onChange={handleTireWidthChange}
+                        value={tireWidth}
                         id="tireWidth"
                         placeholder="265"
                         required
@@ -82,6 +114,8 @@ export default function Form() {
                         />
                     </div>
                     <TextInput
+                        onChange={handleAspectRatioChange}
+                        value={aspectRatio}
                         id="aspectRatio"
                         placeholder="55"
                         required
@@ -97,6 +131,8 @@ export default function Form() {
                         />
                     </div>
                     <TextInput
+                        onChange={handleRimSizeChange}
+                        value={rimSize}
                         id="rimSize"
                         placeholder="17"
                         required
@@ -114,6 +150,8 @@ export default function Form() {
                         />
                     </div>
                     <TextInput
+                        onChange={handleDriveWheelsChange}
+                        value={driveWheels}
                         id="driveWheels"
                         placeholder="4"
                         required
