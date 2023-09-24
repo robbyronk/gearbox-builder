@@ -95,7 +95,7 @@ export function getShiftPoints(optimalForces) {
             return [force, ...shiftPoints];
         }
         return shiftPoints;
-    }, []).slice().reverse()
+    }, []).slice().reverse().slice(1)
 }
 
 export function getMaxPower(optimalForces) {

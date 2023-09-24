@@ -158,7 +158,8 @@ it('should get shift points', () => {
 
     const forces = getAllGearsWheelForces(3.85, gears, torques, 4, 0.5);
     const actual = getShiftPoints(getOptimalGearAtSpeeds(forces));
-    expect(actual.length).toEqual(6)
+    expect(actual.length).toEqual(5)
+    expect(actual[0].speed).toEqual(41)
 });
 
 it('should calculate losses', () => {
