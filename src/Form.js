@@ -227,7 +227,7 @@ export default function Form() {
                         inputMode="numeric"
                     />
                 </div>
-                <div className="mr-1">
+                {gearsCount > 1 && <div className="mr-1">
                     <div className="mb-2 block text-center">
                         <Label
                             htmlFor="secondGear"
@@ -243,8 +243,8 @@ export default function Form() {
                         type="text"
                         inputMode="numeric"
                     />
-                </div>
-                <div className="mr-1">
+                </div>}
+                {gearsCount > 2 && <div className="mr-1">
                     <div className="mb-2 block text-center">
                         <Label
                             htmlFor="thirdGear"
@@ -260,8 +260,8 @@ export default function Form() {
                         type="text"
                         inputMode="numeric"
                     />
-                </div>
-                <div className="mr-1">
+                </div>}
+                {gearsCount > 3 && <div className="mr-1">
                     <div className="mb-2 block text-center">
                         <Label
                             htmlFor="fourthGear"
@@ -277,8 +277,8 @@ export default function Form() {
                         type="text"
                         inputMode="numeric"
                     />
-                </div>
-                <div className="mr-1">
+                </div>}
+                {gearsCount > 4 && <div className="mr-1">
                     <div className="mb-2 block text-center">
                         <Label
                             htmlFor="fifthGear"
@@ -294,8 +294,8 @@ export default function Form() {
                         type="text"
                         inputMode="numeric"
                     />
-                </div>
-                <div className="mr-1">
+                </div>}
+                {gearsCount > 5 && <div className="mr-1">
                     <div className="mb-2 block text-center">
                         <Label
                             htmlFor="sixthGear"
@@ -311,8 +311,8 @@ export default function Form() {
                         type="text"
                         inputMode="numeric"
                     />
-                </div>
-                <div className="mr-1">
+                </div>}
+                {gearsCount > 6 && <div className="mr-1">
                     <div className="mb-2 block text-center">
                         <Label
                             htmlFor="seventhGear"
@@ -328,8 +328,8 @@ export default function Form() {
                         type="text"
                         inputMode="numeric"
                     />
-                </div>
-                <div className="mr-1">
+                </div>}
+                {gearsCount > 7 && <div className="mr-1">
                     <div className="mb-2 block text-center">
                         <Label
                             htmlFor="eigthGear"
@@ -345,8 +345,8 @@ export default function Form() {
                         type="text"
                         inputMode="numeric"
                     />
-                </div>
-                <div className="mr-1">
+                </div>}
+                {gearsCount > 8 && <div className="mr-1">
                     <div className="mb-2 block text-center">
                         <Label
                             htmlFor="ninthGear"
@@ -362,8 +362,8 @@ export default function Form() {
                         type="text"
                         inputMode="numeric"
                     />
-                </div>
-                <div className="mr-1">
+                </div>}
+                {gearsCount > 9 && <div className="mr-1">
                     <div className="mb-2 block text-center">
                         <Label
                             htmlFor="tenthGear"
@@ -379,7 +379,7 @@ export default function Form() {
                         type="text"
                         inputMode="numeric"
                     />
-                </div>
+                </div>}
             </div>
 
             <Button type="submit">
