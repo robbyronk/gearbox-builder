@@ -30,7 +30,7 @@ export const tiresSlice = createSlice({
         },
         updateAspectRatio: (state, {payload}) => {
             const aspectRatio = parseInt(payload);
-            if (1 <= aspectRatio && aspectRatio <= 6) {
+            if (1 <= aspectRatio && aspectRatio <= 99) {
                 state.aspectRatio = aspectRatio;
             } else {
                 state.aspectRatio = initialState.aspectRatio;
